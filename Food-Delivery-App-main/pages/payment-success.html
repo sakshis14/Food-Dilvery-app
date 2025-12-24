@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success - Food Delivery System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">🍔 FoodExpress</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search restaurants, food..." onkeypress="handleSearchKeyPress(event)">
+                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="cart.html">Cart <span class="cart-badge">0</span></a></li>
+                <li><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="success-container">
+            <div class="success-icon">✓</div>
+            <h1 style="color: #51cf66; margin-bottom: 1rem;">Payment Successful!</h1>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">
+                Your order has been placed successfully. We'll start preparing your food right away!
+            </p>
+            <div id="orderDetails" style="background: var(--bg-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; text-align: left;">
+                <h3 style="margin-bottom: 1rem;">Order Details</h3>
+                <div id="orderInfo"></div>
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="tracking.html" class="btn btn-primary">Track Your Order</a>
+                <a href="home.html" class="btn btn-outline">Continue Shopping</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FoodExpress. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/payment-success.js"></script>
+</body>
+</html>
+

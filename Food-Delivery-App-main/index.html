@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Food Delivery System</title>
+    <!--<link rel="icon" href="data:image/svg+xml,
+ <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+     <text y='0.9em' font-size='100'>🍔</text>
+     </svg>">-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🍔 FoodExpress</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search restaurants, food..." onkeypress="handleSearchKeyPress(event)">
+                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                </div>
+                <div class="location-selector">
+                    <span style="margin-right: 0.5rem;">📍</span>
+                    <span id="locationDisplay" style="color: white; font-size: 0.9rem;">Downtown</span>
+                    <button class="btn-location" onclick="window.location.href='pages/home.html'">Change</button>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="pages/home.html">Home</a></li>
+                    <li><a href="pages/cart.html">Cart <span class="cart-badge">0</span></a></li>
+                    <li><a href="pages/login.html">Sign In</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Image Carousel Banner -->
+        <div class="image-carousel">
+            <div class="carousel-slide active">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=400&fit=crop" alt="Delicious Food">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <h2>Delicious Food, Delivered Fast</h2>
+                    <p>Order from your favorite restaurants and enjoy fresh meals at your doorstep</p>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-hero-primary" onclick="handleOrderNow(event)">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&h=400&fit=crop" alt="Fresh Pizza">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <h2>Fresh & Tasty</h2>
+                    <p>Experience the finest flavors from the best restaurants in town</p>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-hero-primary" onclick="handleOrderNow(event)">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&h=400&fit=crop" alt="Tasty Burger">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <h2>Fast Delivery</h2>
+                    <p>Get your favorite meals delivered hot and fresh in minutes</p>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-hero-primary" onclick="handleOrderNow(event)">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&h=400&fit=crop" alt="Delicious Pasta">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <h2>Wide Selection</h2>
+                    <p>Choose from hundreds of cuisines and restaurants</p>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-hero-primary" onclick="handleOrderNow(event)">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&h=400&fit=crop" alt="Sushi">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <h2>Premium Quality</h2>
+                    <p>Only the best ingredients for the best dining experience</p>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-hero-primary" onclick="handleOrderNow(event)">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Duplicate first slide for seamless loop -->
+            <div class="carousel-slide carousel-slide-duplicate">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=400&fit=crop" alt="Delicious Food">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-content">
+                    <h2>Delicious Food, Delivered Fast</h2>
+                    <p>Order from your favorite restaurants and enjoy fresh meals at your doorstep</p>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-hero-primary" onclick="handleOrderNow(event)">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0;">
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🍕</div>
+                <h3>Wide Selection</h3>
+                <p style="color: var(--text-light);">Choose from hundreds of restaurants and cuisines</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+                <h3>Fast Delivery</h3>
+                <p style="color: var(--text-light);">Get your food delivered in 30-40 minutes</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">💳</div>
+                <h3>Easy Payment</h3>
+                <p style="color: var(--text-light);">Pay with UPI, Card, or Cash on Delivery</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FoodExpress. All rights reserved.</p>
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+        // Handle Order Now button - redirect to home if logged in, otherwise to login
+        function handleOrderNow(event) {
+            event.preventDefault();
+            const user = Storage.getUser();
+            if (user && !user.isAdmin) {
+                // User is logged in, redirect to home page
+                window.location.href = 'pages/home.html';
+            } else {
+                // User not logged in, redirect to login page
+                window.location.href = 'pages/login.html';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const location = Storage.getLocation();
+            const display = document.getElementById('locationDisplay');
+            if (display && location.area) {
+                display.textContent = location.area;
+            }
+            
+            // Image Carousel Auto-Play - Continuous rotation without stopping
+            const carousel = document.querySelector('.image-carousel');
+            if (carousel) {
+                const allSlides = carousel.querySelectorAll('.carousel-slide');
+                const slides = Array.from(allSlides).filter(slide => !slide.classList.contains('carousel-slide-duplicate'));
+                const duplicateSlide = carousel.querySelector('.carousel-slide-duplicate');
+                
+                if (slides.length > 0) {
+                    let currentSlide = 0;
+                    const totalSlides = slides.length;
+                    let isTransitioning = false;
+                    
+                    function showSlide(index) {
+                        slides.forEach((slide, i) => {
+                            slide.classList.remove('active', 'prev');
+                            if (i < index) {
+                                slide.classList.add('prev');
+                            } else if (i === index) {
+                                slide.classList.add('active');
+                            }
+                        });
+                    }
+                    
+                    function nextSlide() {
+                        if (isTransitioning) return;
+                        
+                        const prevSlide = currentSlide;
+                        currentSlide = currentSlide + 1;
+                        
+                        // Mark previous slide as prev
+                        if (prevSlide < totalSlides && slides[prevSlide]) {
+                            slides[prevSlide].classList.add('prev');
+                        }
+                        
+                        // If we've reached beyond the last slide, show duplicate
+                        if (currentSlide >= totalSlides) {
+                            isTransitioning = true;
+                            
+                            if (duplicateSlide) {
+                                duplicateSlide.classList.add('active');
+                            }
+                            
+                            // After transition, instantly reset to first slide without stopping
+                            setTimeout(() => {
+                                // Disable transitions for instant reset
+                                slides.forEach(slide => {
+                                    slide.style.transition = 'none';
+                                });
+                                if (duplicateSlide) {
+                                    duplicateSlide.style.transition = 'none';
+                                }
+                                
+                                // Reset: first slide becomes active, others go to right
+                                slides.forEach((slide, i) => {
+                                    slide.classList.remove('active', 'prev');
+                                    if (i === 0) {
+                                        slide.classList.add('active');
+                                        slide.style.transform = 'translateX(0)';
+                                    } else {
+                                        slide.style.transform = 'translateX(100%)';
+                                    }
+                                });
+                                isTransitioning = false;
+
+                                
+                                if (duplicateSlide) {
+                                    duplicateSlide.classList.remove('active', 'prev');
+                                    duplicateSlide.style.transform = 'translateX(100%)';
+                                }
+                                
+                                // Re-enable transitions immediately
+                                setTimeout(() => {
+                                    slides.forEach(slide => {
+                                        slide.style.transition = '';
+                                    });
+                                    if (duplicateSlide) {
+                                        duplicateSlide.style.transition = '';
+                                    }
+                                    isTransitioning = false;
+                                }, 10);
+                                
+                                currentSlide = 0;
+                            }, 1000); // Wait for slide transition to complete
+                        } else {
+                            showSlide(currentSlide);
+                        }
+                    }
+                    
+                    // Initialize first slide
+                    showSlide(0);
+                    
+                    // Change slide every 5 seconds continuously
+                    setInterval(nextSlide, 5000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

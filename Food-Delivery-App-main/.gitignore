@@ -1,0 +1,11 @@
+# Node dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Uploaded files (images, etc.)
+uploads/*
+
+# Keep uploads folder structure
+!uploads/.gitkeep

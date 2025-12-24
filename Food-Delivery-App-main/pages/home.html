@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Food Delivery System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">🍔 FoodExpress</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search restaurants, food..." onkeypress="handleSearchKeyPress(event)">
+                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                </div>
+                <div class="location-selector">
+                    <span style="margin-right: 0.5rem;">📍</span>
+                    <select id="locationSelect" class="location-dropdown">
+                        <option value="">Select Location</option>
+                    </select>
+                    <button id="changeLocationBtn" class="btn-location" onclick="openLocationModal()">Change</button>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="cart.html">Cart <span class="cart-badge">0</span></a></li>
+                    <li><a href="login.html">Sign In</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="filters-container">
+            <div class="filters-header">
+                <h1 style="color: var(--primary-color); margin: 0;">Choose Your Restaurant</h1>
+                <div class="filters-controls">
+                    <select id="sortSelect" class="filter-select">
+                        <option value="">Filter..</option>
+                        <option value="rating-desc">Rating: High to Low</option>
+                        <option value="rating-asc">Rating: Low to High</option>
+                        <option value="time-asc">Delivery Time: Fastest</option>
+                        <option value="time-desc">Delivery Time: Slowest</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="fee-asc">Delivery Fee: Low to High</option>
+                        <option value="fee-desc">Delivery Fee: High to Low</option>
+                    </select>
+                    <select id="cuisineFilter" class="filter-select">
+                        <option value="">All Cuisines</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="restaurantsContainer" class="restaurants-grid">
+            <div class="spinner"></div>
+        </div>
+    </main>
+
+    <!-- Location Modal -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLocationModal()">&times;</span>
+            <h2>Select Delivery Location</h2>
+            <div class="form-group">
+                <label for="areaSelect">Area</label>
+                <select id="areaSelect" class="form-control">
+                    <option value="">Select Area</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="addressInput">Address (Optional)</label>
+                <input type="text" id="addressInput" class="form-control" placeholder="Enter your full address">
+            </div>
+            <button onclick="saveLocation()" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Save Location</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 FoodExpress. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/home.js"></script>
+</body>
+</html>
+

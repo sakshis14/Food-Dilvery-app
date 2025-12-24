@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Food Delivery System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">🍔 FoodExpress</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search restaurants, food..." onkeypress="handleSearchKeyPress(event)">
+                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="cart.html">Cart <span class="cart-badge">0</span></a></li>
+                <li><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="color: var(--primary-color); margin-bottom: 2rem;">Choose Payment Method</h1>
+        
+        <div class="cart-summary" style="margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1rem;">Order Summary</h3>
+            <div id="orderSummary"></div>
+            <div class="summary-row summary-total">
+                <span>Total:</span>
+                <span id="orderTotal">$0.00</span>
+            </div>
+        </div>
+
+        <div class="payment-methods">
+            <div class="card payment-method" onclick="processPayment('UPI')">
+                <h3>💳 UPI Payment</h3>
+                <p>Pay using UPI apps like Google Pay, PhonePe, Paytm</p>
+            </div>
+            <div class="card payment-method" onclick="processPayment('Card')">
+                <h3>💳 Card Payment</h3>
+                <p>Pay using Credit or Debit Card</p>
+            </div>
+            <div class="card payment-method" onclick="processPayment('COD')">
+                <h3>💰 Cash on Delivery</h3>
+                <p>Pay when your order arrives</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FoodExpress. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/payment.js"></script>
+</body>
+</html>
+

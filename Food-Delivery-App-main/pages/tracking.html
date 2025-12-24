@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - Food Delivery System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">🍔 FoodExpress</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search restaurants, food..." onkeypress="handleSearchKeyPress(event)">
+                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="cart.html">Cart <span class="cart-badge">0</span></a></li>
+                <li><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="color: var(--primary-color); margin-bottom: 2rem;">Track Your Order</h1>
+        <div id="trackingContainer">
+            <div class="spinner"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FoodExpress. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/tracking.js"></script>
+</body>
+</html>
+

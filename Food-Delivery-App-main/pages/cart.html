@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Food Delivery System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">🍔 FoodExpress</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search restaurants, food..." onkeypress="handleSearchKeyPress(event)">
+                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="cart.html">Cart <span class="cart-badge">0</span></a></li>
+                <li><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="color: var(--primary-color); margin-bottom: 2rem;">Shopping Cart</h1>
+        <div id="cartContainer">
+            <div class="spinner"></div>
+        </div>
+        <div id="cartSummary" class="cart-summary" style="display: none;">
+            <div class="card" style="padding: 1.5rem; max-width: 100%; margin: 0 auto;">
+                <h3 style="margin: 0 0 1.5rem 0; color: var(--text-dark);">Order Summary</h3>
+                <div class="summary-row" style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+                    <span style="color: var(--text-light);">Subtotal:</span>
+                    <span id="subtotal" style="font-weight: 600;">$0.00</span>
+                </div>
+                <div class="summary-row" style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+                    <span style="color: var(--text-light);">Delivery Fee:</span>
+                    <span style="font-weight: 600;">$2.99</span>
+                </div>
+                <div class="summary-row summary-total" style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; padding-top: 1rem;">
+                    <span style="font-size: 1.2rem; font-weight: bold; color: var(--primary-color);">Total:</span>
+                    <span id="total" style="font-size: 1.2rem; font-weight: bold; color: var(--primary-color);">$0.00</span>
+                </div>
+                <a href="payment.html" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; text-align: center; display: block; padding: 1rem; font-size: 1.1rem;">Proceed to Checkout</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FoodExpress. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+</html>
+

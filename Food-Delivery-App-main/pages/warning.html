@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ Use a Web Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 700px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        .error-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .error-box code {
+            background: #f8f9fa;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .solution {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .solution h3 {
+            color: #155724;
+            margin-bottom: 1rem;
+        }
+        .solution ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .solution li {
+            margin: 0.5rem 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #4ecdc4;
+        }
+        .code-block {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">⚠️</div>
+        <h1>CORS Error Detected!</h1>
+        <p style="font-size: 1.2rem; color: #636e72; margin-bottom: 2rem;">
+            You're opening files directly. This won't work!
+        </p>
+        
+        <div class="error-box">
+            <strong>❌ The Problem:</strong>
+            <p style="margin-top: 0.5rem;">
+                You're using the <code>file://</code> protocol, which browsers block for security.
+                The error you're seeing is:
+            </p>
+            <div class="code-block">
+Access to fetch at 'file:///...' from origin 'null' has been blocked by CORS policy
+            </div>
+        </div>
+
+        <div class="solution">
+            <h3>✅ The Solution: Use a Web Server</h3>
+            <ol>
+                <li>
+                    <strong>Open PowerShell or Command Prompt</strong> in this project folder
+                </li>
+                <li>
+                    <strong>Run this command:</strong>
+                    <div class="code-block">python -m http.server 8000</div>
+                </li>
+                <li>
+                    <strong>Open your browser</strong> and go to:
+                    <div class="code-block">http://localhost:8000</div>
+                </li>
+                <li>
+                    <strong>Navigate to:</strong> 
+                    <code>http://localhost:8000/pages/home.html</code>
+                </li>
+            </ol>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <a href="../START_HERE.md" class="btn">📖 Read Full Instructions</a>
+            <a href="javascript:location.reload()" class="btn btn-secondary">🔄 Reload (if server is running)</a>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1rem; background: #e9ecef; border-radius: 8px;">
+            <strong>💡 Quick Tips:</strong>
+            <ul style="text-align: left; margin-top: 0.5rem; margin-left: 1.5rem;">
+                <li>Keep the server window open while using the app</li>
+                <li>Always use <code>http://localhost:8000</code> URLs</li>
+                <li>Don't double-click HTML files - use the browser URL bar</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Detect if we're using file:// protocol
+        if (window.location.protocol === 'file:') {
+            console.error('⚠️ File protocol detected! Use a web server.');
+        } else if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+            // If using http/https, redirect to home
+            if (window.location.pathname.includes('warning.html')) {
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
